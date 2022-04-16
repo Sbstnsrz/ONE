@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+
+<h1>JUEGO DE ADIVINACION</h1>
+
+<script>
+
+	function saltarlinea(){
+		document.write("<br><br>");
+	}
+	function imprimir(frase){
+		document.write(frase);
+		saltarlinea();
+	}
+	function sortea(n){
+		return Math.round(Math.random()*n)
+	}
+	
+	var numeroPensado = sortea(10);
+	var numeroLanzado = parseInt(prompt("Ingrese un número entre 0-10"));
+
+	if(numeroPensado == numeroLanzado){
+		imprimir("Usted acertó")
+	}
+	else if(numeroPensado<numeroLanzado){
+		imprimir("Usted erró, el número pensado era menor");
+	}
+	else{
+		imprimir("Usted erró, el número pensado era mayor");
+	}
+
+
+</script>
