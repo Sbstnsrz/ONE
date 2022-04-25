@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<input id="text1" size="50" />
+<button id="encriptar">Encriptar</button>
+<br>
+<input id="text2" size="50"/>
+<button id="desencriptar">Desencriptar</button>
+
+<script>
+	var codigo = ["e","enter","i","imes","a","ai","o","ober","u","ufat"]
+	function encriptar(mensaje){
+		var resultado = mensaje;
+		for(var cont=0; cont<codigo.length; cont+=2){
+			resultado = resultado.replaceAll(codigo[cont],codigo[cont+1]);
+		}
+		return resultado;
+	}
+	function desencriptar(mensaje){
+		var resultado = mensaje;
+		for(var cont=0; cont<codigo.length; cont+=2){
+			resultado=resultado.replaceAll(codigo[cont+1],codigo[cont]);
+		}
+		return resultado;
+	}
+	
+	var input1 =document.getElementById("text1");
+	input1.focus();
+
+	var input2 =document.getElementById("text2");
+
+	function validarEncriptacion(){
+		var mensaje = encriptar(input1.value);
+		input2.value = mensaje;
+	}
+
+	var button1 = document.getElementById("encriptar");
+	button1.onclick = validarEncriptacion;
+
+	function validarDesencriptacion(){
+		var mensaje = desencriptar(input2.value);
+		input1.value = mensaje;
+	}
+
+	var button2 = document.getElementById("desencriptar");
+	button2.onclick = validarDesencriptacion;
+</script>
